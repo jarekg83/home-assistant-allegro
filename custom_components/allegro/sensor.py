@@ -16,10 +16,10 @@ from .const import (
 from .entity import AllegroEntity
 
 
-async def async_setup_entry(hass, entry, async_add_devices):
+async def async_setup_entry(hass, entry, async_add_entities):
     """Setup sensor platform."""
     coordinator = hass.data[DOMAIN][entry.entry_id]
-    async_add_devices(
+    async_add_entities(
         [
             WaitingForDeliverySensor(coordinator, entry),
             WaitingForPickupSensor(coordinator, entry),
